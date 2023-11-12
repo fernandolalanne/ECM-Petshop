@@ -122,7 +122,32 @@ def update_pet(request, pet_name):
     except:
         return render(request, 'general_tabs/error_update.html')
 
+def delete_pet(request, pet_name):
+    pet = get_object_or_404(Pets, name=pet_name)
+    if request.method == 'POST':
+        pet.delete()
+        return render(request, 'general_tabs/delete_pet_conf.html', {'pet': pet})
+    return render(request, 'general_tabs/delete_pet_conf.html', {'pet': pet})
 
+# def new_pet(request):
+#     if request.method == 'POST':
+#         form = PetsForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('index2')  # Cambia 'nombre_de_la_url_donde_quieres_redirigir' a la URL a la que deseas redirigir después de agregar la mascota.
+#     else:
+#         form = PetsForm()
+#     return render(request, 'shops/new_pet.html', {'form': form})
+
+def create_pet(request):
+    if request.method == 'POST':
+        form = PetsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'shops/successful_creation.html') # Cambia 'nombre_de_la_url_donde_quieres_redirigir' a la URL a la que deseas redirigir después de agregar la mascota.
+    else:
+        form = PetsForm()
+    return render(request, 'shops/new_pet.html', {'form': form})
 
 
 def cart(request):

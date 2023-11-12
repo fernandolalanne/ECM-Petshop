@@ -18,7 +18,6 @@ class Pets(models.Model):
     name = models.CharField(max_length=220, null=True, validators=[name_validator])
     price = models.FloatField(default=0.0)
     description = models.TextField(verbose_name='Description', null=True)
-    digital = models.BooleanField(default=True, null=True, blank=False)
     image = models.ImageField(null=True, blank=False)
     sold = models.CharField(max_length=3, choices=sold_choices, default='No', null=True, blank=False)
     hungry = models.CharField(max_length=3, choices=sold_choices, default='No', null=True, blank=False)

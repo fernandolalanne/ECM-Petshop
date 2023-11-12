@@ -9,5 +9,6 @@ class PetsForm(forms.ModelForm):
 class PetUpdateForm(forms.ModelForm):
     class Meta:
         model = Pets
-        fields = ['name', 'price', 'sold', 'hungry', 'location']
+        # fields = ['name', 'price', 'sold', 'hungry', 'location']
+        fields = ['name', 'price', 'description', 'image', 'sold', 'hungry', 'location']
 

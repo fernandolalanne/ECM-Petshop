@@ -27,6 +27,8 @@ urlpatterns = [
 
     # status animals
     path('update_pet/<str:pet_name>/', views.update_pet, name='update_pet'),
+    path('delete_pet/<str:pet_name>/', views.delete_pet, name='delete_pet'),
+
 
     # cart
     path('products/', views.product_list, name='product_list'),
@@ -36,6 +38,8 @@ urlpatterns = [
 
     path('get_cart_count/', views.get_cart_count, name='get_cart_count'),
 
+    path('create_pet/', views.create_pet, name='create_pet'),
     path('delete_item/<str:item_name>/', views.delete_item, name='delete_item'),
+    # path('new_pet', views.new_pet, name='new_pet'),
 
 ]

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Resto del encabezado -->
+</head>
+
+{% block contenido %}
+
+<div class="container">
+    <h2>Create a New Pet</h2>
+    <form method="post" enctype="multipart/form-data" action="{% url 'create_pet' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Create Pet</button>
+    </form>
+</div>
+
+{% endblock %}
