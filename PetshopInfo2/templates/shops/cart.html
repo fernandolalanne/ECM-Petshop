@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+
+  <!-- 
+    - primary meta tag
+  -->
+  <title>Centrale Petshop 2023</title>
+  
+ <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" type = 'image/x-icon' href="{% static 'favicon.svg' %}">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" type = 'text/css' href="{% static 'css/style.css' %}">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Nunito+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+<body>
+    <section class="section product" id="#" aria-label="product">
+        <div class="product-card">
+            <h2 class="h2 section-title" onmouseover="changeColor(this)" onmouseout="restoreColor(this)">
+                <span class="span">Your shopping</span> card!
+            </h2>
+            <ul class="grid-list justify-content-center align-items-center">
+                {% for item in cart_info %}
+                    <form method="post" action="{% url 'delete_item' item.name %}">
+                        {% csrf_token %}
+                        <ul class="grid-list justify-content-center align-items-center">
+                            <div class="row">
+                                <div class="product-card">
+                                    <div class="col">
+                                        <div class="card h-100" style="width: 18rem; margin: 5;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ item.name }}</h5>
+                                                <p class="card-text">Price: ${{ item.price }}</p>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ul>
+                    </form>
+                {% endfor %}
+            </ul>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h4 class="card-title">Total: ${{ total_price }}</h4>
+                    <a href="{% url 'buy_items' %}" class="btn btn-success">Buy</a>                
+                    <a href="{% url 'index2' %}" class="btn btn-warning">Return to the website</a>                
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
