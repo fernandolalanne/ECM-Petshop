@@ -14,7 +14,7 @@ Le fichier suivant a pour but d'expliquer comment le code a été créé afin qu
 - [Comment lancer ou gérer le programme](#comment-lancer-ou-gérer-le-programme) :raised_eyebrow:
 - [Dossiers existants](#dossiers-existants) :file_folder:
 - [Explication du dossier Templates](#explication-du-dossier-templates) :framed_picture:
-- [Explication du dossier Formateur dans Templates](#explication-du-dossier-formateur-dans-templates) :nerd_face:
+- [Explication du dossier shops dans Templates](#explication-du-dossier-formateur-dans-templates) :nerd_face:
 - [Fichier views.py](#fichier-views.py) :globe_with_meridians:
 
 
